@@ -4,6 +4,40 @@ Author: Roland Johansson
 Created: October 2018
 */
 
+//Definiera vid hur många pixlars bredd på viewporten vi vill ha vår brytpunkt
+const breakpoint = $(".wrapper").width();
+
+//Definera den initiala bredden på viewporten
+let previousWidth = $(window).width();
+
+selectAlphaMode(previousWidth);
+
+$(window).resize(function() {
+  let width = $(window).width();
+
+  if ((width < breakpoint && previousWidth >= breakpoint) || (width >= breakpoint && previousWidth < breakpoint)) {
+    selectAlphaMode(width);
+  }  
+
+  previousWidth = width;
+
+});
+
+// Sätt alpha till 1 eller adaptiv baserat på viewportens bredd
+function selectAlphaMode(width) {
+
+  if (width < breakpoint) {
+    $(document).scroll().off();
+    setAlpha(1);
+  } else {
+    setAlpha(calcAlpha());
+    $(document).scroll(function() {
+      setAlpha(calcAlpha());
+    });
+  }
+
+}
+
 function setAlpha(alpha) {
   $("nav").css("background-color", "rgba(39, 39, 39," + alpha + ")");
 }
@@ -36,8 +70,3 @@ function calcAlpha() {
   //Returnera vad alpha nu har blivit efter vår uträkning
   return alpha;  
 }
-
-//När dokumentet scrollar, kör setAlpha-funktionen med värdet från calcAlpha
-$(document).scroll(function() {
-  setAlpha(calcAlpha());
-});
