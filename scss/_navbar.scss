@@ -1,7 +1,7 @@
 /* ====== NAVBAR ====== */
 
 nav {
-  background-color: $quaternary-color;
+  // background-color: $quaternary-color;
   position: fixed;
   top: 0;
   left: 0;
@@ -18,7 +18,7 @@ nav {
       a {
         display: inline-block;
         padding: 1em;
-        color: $quinary-color;
+        color: $primary-color;
         text-decoration: none;
       } & :hover {
         background-color: $senary-color;
