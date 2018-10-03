@@ -5,7 +5,7 @@ Created: October 2018
 */
 
 function setAlpha(alpha) {
-  $("nav").css("background-color", "rgba(0, 0, 0," + alpha + ")");
+  $("nav").css("background-color", "rgba(39, 39, 39," + alpha + ")");
 }
 
 function calcAlpha() {

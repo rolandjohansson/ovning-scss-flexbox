@@ -408,7 +408,7 @@ nav ul li :hover {
 
 /* ====== HEADER ====== */
 header {
-  height: 50vh;
+  height: 85vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
